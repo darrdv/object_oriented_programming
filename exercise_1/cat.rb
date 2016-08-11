@@ -6,6 +6,20 @@ class Cat
     @meal_time = meal_time
   end
 
+  def eats_at(a_time)
+    case a_time
+    when 0
+        "#{a_time + 12} AM"
+    when 1..11
+        "#{a_time} AM"
+    when 12
+        "#{a_time} PM"
+    when 13..23
+      "#{a_time - 12} PM"
+    else
+      "12 AM"  #Default value in case someone enters a number not in range.
+    end
+  end
 
 end
 
