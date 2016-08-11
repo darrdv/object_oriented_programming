@@ -21,7 +21,14 @@ class Cat
     end
   end
 
+  def meow
+    meal_time = eats_at(@meal_time)
+    puts "My name is #{@name} and I eat #{@preferred_food} at #{meal_time}"
+  end
+
 end
 
 tiger = Cat.new('Tiger', 'Tuna', 8)
 otis = Cat.new('Otis', 'Chicken', 17)
+tiger.meow
+otis.meow
