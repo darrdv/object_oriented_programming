@@ -6,5 +6,8 @@ class Cat
     @meal_time = meal_time
   end
 
-  
+
 end
+
+tiger = Cat.new('Tiger', 'Tuna', 8)
+otis = Cat.new('Otis', 'Chicken', 17)
