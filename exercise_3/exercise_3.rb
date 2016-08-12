@@ -1,14 +1,27 @@
 class Rover
 
-  def initialize(location_x, location_y, direction)
-    @location_x = location_x
-    @location_y = location_y
-    @direction = direction
+  def initialize
+    @location_x = 0
+    @location_y = 0
+    @x_max = 0
+    @y_max = 0
+    @direction = ''
   end
 
   def read_instruction
     #should accept an instruction and decide whether to tell the rover to move or turn.
     #It simply delegates to more specific behaviour.
+
+    puts "What is the plateau size? (Enter in the format of X Y) "
+    size = gets.chomp
+    puts "Enter start position (X Y) and direction header (N,S,E,W) "
+    starter_heading = gets.chomp
+    
+
+
+
+
+
 
 
 
