@@ -14,16 +14,17 @@ class Rover
 
     puts "What is the plateau size? (Enter in the format of X Y) "
     size = gets.chomp
-    puts "Enter start position (X Y) and direction header (N,S,E,W) "
+    size.split(" ").map { |s| s.to_i }
+    @x_max = size[0]
+    @y_max = size[1]
+    puts "Enter start position (X Y and direction header N or S or E or W) "
     starter_heading = gets.chomp
-    
-
-
-
-
-
-
-
+    starter_heading.split(" ").map { |s| s.to_i }
+    @location_x = starter_heading[0]
+    @location_y = starter_heading[1]
+    @direction = starter_heading[2]
+    puts "Enter move and turn instructions: "
+    instructions = gets.chomp
 
   end
 
@@ -62,10 +63,5 @@ class Rover
         @direction = "S"
       end
   end
-
-
-
-
-
 
 end
