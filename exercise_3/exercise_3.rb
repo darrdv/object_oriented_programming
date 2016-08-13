@@ -63,9 +63,9 @@ class Rover
 
   def show_position
     if @position_x.to_i > @plateau_size_x || @position_y.to_i > @plateau_size_y
-      return "Rover is out of bounds"
+      return "Rover is out of bounds."
     elsif @position_x.to_i < 0 || @position_y.to_i < 0
-      return "Rover is out of bounds"
+      return "Rover is out of bounds."
     else
       return "#{@position_x} #{@position_y} #{@direction}"
     end
@@ -80,4 +80,4 @@ end
 #rover2 = Rover.new(3,3,"E")
 #rover2.enter_plateau_size(5,5)
 #rover2.instructions(MMRMMRMRRM)
-#rover1.show_position
+#rover2.show_position
