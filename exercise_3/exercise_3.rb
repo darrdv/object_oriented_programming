@@ -3,30 +3,22 @@ class Rover
   def initialize
     @location_x = 0
     @location_y = 0
-    @x_max = 0
-    @y_max = 0
-    @direction = ''
+    @direction = 0
   end
 
-  def read_instruction
-    #should accept an instruction and decide whether to tell the rover to move or turn.
-    #It simply delegates to more specific behaviour.
-
-    puts "What is the plateau size? (Enter in the format of X Y) "
-    size = gets.chomp
-    size.split(" ").map { |s| s.to_i }
-    @x_max = size[0]
-    @y_max = size[1]
-    puts "Enter start position (X Y and direction header N or S or E or W) "
-    starter_heading = gets.chomp
-    starter_heading.split(" ").map { |s| s.to_i }
-    @location_x = starter_heading[0]
-    @location_y = starter_heading[1]
-    @direction = starter_heading[2]
-    puts "Enter move and turn instructions: "
-    instructions = gets.chomp
-
+  def instructions(input)
+    input.each_char do |i|
+    if i == "L"
+      turn("L")
+    elsif i == "R"
+      turn("R")
+    elsif i == "M"
+      move
+    else
+      return "Instruction not understood."
+    end
   end
+
 
   def move
     if @direction == 'N'
@@ -39,6 +31,7 @@ class Rover
       @location_x += 1
     end
   end
+
 
   def turn(rotation)
     case rotation
@@ -62,6 +55,16 @@ class Rover
       elsif @direction == "E"
         @direction = "S"
       end
+  end
+
+  def show_position
+    if @position_x.to_i > 9 || @position_y.to_i > 9
+      return "Rover is out of bounds"
+    elsif @position_x.to_i < 0 || @position_y.to_i < 0
+      return "Rover is out of bounds"
+    else
+      return @position_x, @position_y, @direction
+    end
   end
 
 end
